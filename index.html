@@ -1,1 +1,379 @@
-Hello World
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Warszat programisty @Mateusz Kamiński</title>
+
+  <link rel="stylesheet" href="dist/reset.css">
+  <link rel="stylesheet" href="dist/reveal.css">
+  <link rel="stylesheet" href="dist/theme/blood.css" id="theme">
+
+  <!-- Theme used for syntax highlighted code -->
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h2 class="r-fit-text">Warsztat programisty</h3>
+          <p>Mateusz Kamiński</p>
+          <img width="200" src="res/sages_white_RGB.svg">
+          <!-- <aside class="notes">
+						Shhh, these are your private notes 📝
+					</aside> -->
+      </section>
+      <section>
+        <h3>Agenda</h3>
+        <ol>
+          <li>Pisanie kodu - IDE</li>
+          <li>Repozytoria kodu - Version Control Systems</li>
+          <li>Narzędzia budowania aplikacji</li>
+          <li>Wersjonowanie aplikacji</li>
+          <li>Repozytoria artefaktów</li>
+          <li>Ciągła Integracja i Ciągłe dostarczanie</li>
+          <li>Zarządzanie projektem programistycznym i nie tylko - Attlasian JIRA</li>
+        </ol>
+      </section>
+      <section>
+        <h4>IDE</h3>
+          <p>Dobierany w zależności od typu (języka) projektu.</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Języki</th>
+                <th>Technologie</th>
+                <th>IDE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Java, Kotlin, Scala</td>
+                <td>backendowe</td>
+                <td>Intellij IDEA, Eclipse</td>
+              </tr>
+              <tr>
+                <td>Javascript, Typescript, CSS, HTML</td>
+                <td>frontedowe</td>
+                <td>Visual Studio Code, Atom</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>Ale zasadniczo wszystko można pisać we wszystkim :)</p>
+      </section>
+      <section>
+        <h4>CTRL+SPACE i inne</h3>
+          <ul>
+            <li><b>Inteligentne wspomaganie</b> - edytor przewiduje co chcemy napisać</li>
+            <li><b>Analiza kodu</b> - czyli to czego kompilator nie wykryje (i my również :) )</li>
+            <li>
+              <b>Hot reload</b> - podmiana kodu w działającej aplikacji w trybie deweloperskim:
+              <a
+                href="https://medium.com/@m.muizzsuddin_25037/hot-reload-java-without-worry-with-dcevm-hotswap-in-intellijidea-472ba82f8121">
+                DCEVM
+              </a>
+            </li>
+            <li><b>Użyteczne pluginy</b> - mnogość dodatków usprawniających naszą codzienną pracę</li>
+          </ul>
+      </section>
+      <section>
+        <h4>Version Control System</h4>
+        <ul>
+          <li>Nie tylko dla kodu</li>
+          <li>Rozproszone lub scentralizowane</li>
+          <li><b>Git</b> is MacGyver and <b>Mercurial</b> is James Bond</li>
+          <li>Według statystyk Git występuje 80% projektów programistycznych</li>
+          <li>Legacy: SVN, CVS</li>
+          <li>Stanowi portfolio programisty</li>
+          <li>Niezależny od języka programowania - nie zwalnia nas od testowania poprawności wprowadzanych zmian!</li>
+        </ul>
+      </section>
+      <section>
+        <h4>GIT</h4>
+        <p>Gdzie cetralnie przechowujemy zmiany:</p>
+        <ul>
+          <li>własny serwer - korporacje lub projekty dla NASA :)</li>
+          <li>GitHub</li>
+          <li>Bitbucket</li>
+          <li>GitLab</li>
+          <li>Google Cloud</li>
+        </ul>  
+        <p>Ten wybór może wpłynąć na wybór innych narzędzi!</p>
+      </section>
+      <section>
+        <h4>Branch</h4>
+        <p>VCS mają strukturę drzewiastą</p>
+        <p>Reprezentuje robocze zmiany i nie blokuje innych prowadzonych równolegle do naszych</p>
+        <p>Wybieramy co chcemy dołączyć do głównej linii</p>
+        <p>Pozwala na kontrolowaną współpracę wielu osób w jednym projekcie</p>
+        <p>Prostszy do wycofania w przypadku błędów</p>
+      </section>
+      <section>
+        <h4>Must have configuration</h4>
+        -> wstępna konfiguracja GITa po instalacji
+        <pre>
+					<code data-trim class="bash">
+$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com
+$ git config --global pull.rebase true 
+					</code>
+				</pre>
+        + wymiana kluczy SSH z serwerem (brak potrzeby używania hasła)
+      </section>
+      <section>
+        <h4>Podstawy obsługi GITa</h4>
+        <p>Można obsługiwać z poziomu GUI ale warto zapoznać się z konsolowymi komendami</p>
+        <pre>
+					<code data-trim class="bash">
+# Klonujemy repozytorium na własną maszynę
+$ git clone url_to_server && cd repo_name
+# Przeniesienie na wybrany branch
+$ git checkout branch_name
+# Pobranie zmian z serwera (ktoś w międzyczasie mógł coś dodać)
+$ git pull
+# Utworzenie nowego brancha na którym przeprowadzimy nasze prace
+$ git branch branch_name_mine && git checkout branch_name_mine
+# Nanosimy zmiany w wybranych miejscach i tworzymy commit
+$ git add file1
+$ git rm file3
+$ git commit -m "Commit message"
+# Tym samym utworzyliśmy tzw. lokalny "snapshot" zmian
+# W tym momencie zmiany nie są dostępne na głównym serwerze
+$ git push
+					</code>
+				</pre>
+      </section>
+      <section>
+        <h4>Podstawy obsługi GITa</h4>
+        Warto sprawdzić nawet jeśli komuś się wydaje, że dobrze zna GITa :)
+        <a href="https://learngitbranching.js.org/?locale=pl">https://learngitbranching.js.org</a>
+        <img src="res/learn-git.png"/>
+      </section>
+      <section>
+        <h4>Commit - zasady</h4>
+        <ol>
+          <li>Trafna nazwa opisująca w skrócie zrealizowane zmiany w ramach commita.</li>
+          <li>Nazwa zawiera odniesienie do zgłoszenia w JIRA lub innego narzędzia do prowadzenia projektów.</li>
+          <li>Mniejsze niż większe.</li>
+          <li>Staramy się nie nadpisywać istniejącej historii.</li>
+          <li>Przed stworzeniem sprawdzamy czy aplikacja buduje się i działa poprawnie (w zakresie naszych zmian).</li>
+        </ol>
+      </section>
+      <section>
+        <h4>Konflikty</h4>
+      </section>
+      <section>
+        <h4>Reset</h4>
+      </section>
+      <section>
+        <h4>Merge vs Rebase</h4>
+      </section>
+      <section>
+        <h4>Git Flow</h4>
+        <p>Więcej o tym w sekcji dot. wersjonowania</p>
+      </section>
+      <section>
+        <h4>Pull Request</h4>
+      </section>
+      <section>
+        <h4>Gitignore</h4>
+        <p>Definicja typów plików, katalogów itp. których nie chcemy mieć w repozytorium.</p>
+        <p>W zależności od używanych IDE, języków programowania i narzędzi budowania projektu może mieć różną zawartość.</p>
+        <pre><code data-trim="">
+.idea/
+*.iml
+*.iws
+*.eml
+out/
+.DS_Store
+.svn
+log/*.log
+tmp/**
+node_modules/
+.sass-cache
+dist/*.map
+        </code></pre>
+      </section>
+      <section>
+        <h4>Narzędzia budowania aplikacji</h3>
+          <ul>
+            W projektach gdzie mamy języki JVM:
+            <li>Ant - na początku było ...</li>
+            <li>Maven - legacy z wieloma pluginami</li>
+            <li>Gradle - aktualnie popularne, większa elastyczność</li>
+            <li>Sbt - projekty opierające się na języku Scala</li>
+          </ul>
+      </section>
+      <section>
+        <h4>Po co to komu potrzebne...</h4>
+        <ul>
+          <li>kontrola kompilacji kodu</li>
+          <li>kontrola zależności (bibliotek)</li>
+          <li>automatyczne uruchamianie testów</li>
+          <li>analiza statyczna kodu</li>
+          <li>tworzenie artefaktów gotowych do uruchomienia</li>
+          <li>przesłanie artefaktów do repozytorium artefaktów</li>
+          <li>wsparcie dewelopmentu</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Maven vs Gradle</h4>
+      </section>
+      <section>
+        <h4>Narzędzia budowania aplikacji v2</h3>
+          <p>W projektach opartych na JS / Node, typowo frontendowe: Angular, React, Vue itp.</p>
+          <p>NPM - Node Package Manager</p>
+          <p>Bower</p>
+      </section>
+      <section>
+        <h4>NPM</h4>
+        <p>Definicja projektu w package.json</p>
+        <pre style="width: 100%; height: 100%"><code data-trim class="js">
+{
+  "name": "gatsby-starter-hello-world",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "gatsby": "^2.26.1",
+    "gatsby-plugin-manifest": "^2.12.1",
+    "gatsby-plugin-offline": "^3.10.2",
+    "gatsby-plugin-react-helmet": "^3.10.0",
+    "gatsby-plugin-sass": "^3.2.0",
+    "jquery": "^3.4.1",
+    "katex": "^0.11.1",
+    "primeicons": "^2.0.0",
+    "primereact": "^6.0.2",
+    "prismjs": "^1.23.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.1.0",
+    "sass": "^1.32.8",
+    "slick-carousel": "^1.8.1"
+  },
+  "devDependencies": {
+    "prettier": "2.2.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  }
+}
+				</code></pre>
+      </section>
+      <section>
+        <h4>Repozytorium artefaktów</h4>
+        <ol>
+          <li>Miejsce na umieszczanie zbudowanych i gotowych do uruchomienia części aplikacji.</li>
+          <li>Niezbędne dla procesu ciągłego dostarczania oprogramowania.</li>
+          <li>Szybki dostęp do wszystkich wersji oprogramowania - nasi klienci mają wybór jaką wersję chcą zainstalować.</li>
+          <li>Proxy dla globalnych repozytoriów artefaktów.</li>
+          <li>Umożliwia przechowywanie prywatnych bibliotek których nie chcemy udostępniać na świat.</li>
+        </ol>
+      </section>
+      <section>
+        <h4>Nexus</h4>
+      </section>
+      <section>
+        <h4>Wersjonowanie</h4>
+        <ul>
+          <li>Identyfikacja zmian w ramach większych paczek</li>
+          <li>Ułatwia bugtracking i rollbacking</li>
+          <li>Polityki kompatybilnościowe</li>
+          <li>Niezbędnik dla CI / CD</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Semantic versioning</h4>
+        <p>Popularna, ustandaryzowana metodyka wersjonowania</p>
+
+      </section>
+      <section>
+        <h4>Wersjonowanie w praktyce</h4>
+        <p>Tagowanie w GIT</p>
+        <img src="res/git-tags.png"/>
+
+      </section>
+      <section>
+        <h4>Automatyzacja wersjonowania</h4>
+        <p>W narzędziach do budowania projektu używamy gotowych pluginów do wydawania nowych wersji.</p>
+        <pre><code data-trim><script type="text/template">
+// needs to be defined before usage of scmVersion
+scmVersion {
+  tag(closureOf<TagNameSerializationConfig> {
+      prefix = "v"
+      versionSeparator = ""
+  })
+  ignoreUncommittedChanges = false
+  repository(closureOf<RepositoryConfig> {
+      pushTagsOnly = true
+  })
+}
+
+group = "pl.sages.site"
+project.version = scmVersion.version
+</script></code></pre>
+      </section>
+
+      <section>
+        <h4>Ciągła Integracja</h4>
+        <img style="width: 50%" src="res/continuous-integration-2.png"/>
+      </section>
+      <section>
+        <h4>Ciągłe Dostarczanie</h4>
+        <img src="res/ci-cd.png"/>      
+      </section>
+      <section>
+        <h4>Wersje w JIRA</h4>
+        <img src="res/versions-in-jira.png"/>
+      </section>
+      
+      <section>
+        <h4>Komunikacja z zespołem</h4>
+        <p>Email - legacy ale czasami przydatny</p>
+        <p>Slack - podział na grupy, integracje z narzędziami programistycznymi</p>
+        <p>Trello / Jira </p>
+      </section>
+      <section>
+        Prezentacja narzędzi w praktyce
+      </section>
+      <section>
+        Bardzo dziękuję za wysłuchanie :)
+        <a href="mailto:m.kaminski@sages.com.pl">m.kaminski@sages.com.pl</a>
+      </section>
+
+    </div>
+  </div>
+
+  <script src="dist/reveal.js"></script>
+  <script src="plugin/notes/notes.js"></script>
+  <script src="plugin/markdown/markdown.js"></script>
+  <script src="plugin/highlight/highlight.js"></script>
+  <script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      progress: true,
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+    });
+  </script>
+</body>
+
+</html>
