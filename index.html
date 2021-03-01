@@ -69,6 +69,7 @@
           <ul>
             <li><b>Inteligentne wspomaganie</b> - edytor przewiduje co chcemy napisać</li>
             <li><b>Analiza kodu</b> - czyli to czego kompilator nie wykryje (i my również :) )</li>
+            <li><b>Clean code</b> - narzędzia "sprzątające" (lintery) i refaktoryzujące</li>
             <li>
               <b>Hot reload</b> - podmiana kodu w działającej aplikacji w trybie deweloperskim:
               <a
@@ -286,6 +287,11 @@ dist/*.map
       </section>
       <section>
         <h4>Nexus</h4>
+        <ul>
+          <li>Popularne i powszechnie stosowane repozytorium artefaktów różnego typu.</li>
+          <li>Może przechowywać i rejestrować jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.</li>
+          <img src="res/nexus.png"/>
+        </ul>
       </section>
       <section>
         <h4>Wersjonowanie</h4>
@@ -298,14 +304,20 @@ dist/*.map
       </section>
       <section>
         <h4>Semantic versioning</h4>
-        <p>Popularna, ustandaryzowana metodyka wersjonowania</p>
-
+        <p>Popularna, ustandaryzowana metodyka wersjonowania: <a href="https://semver.org/">https://semver.org/</a></p>
+        <img style="width: 70%;" src="res/semver.png"/>
       </section>
       <section>
         <h4>Wersjonowanie w praktyce</h4>
         <p>Tagowanie w GIT</p>
         <img src="res/git-tags.png"/>
-
+<pre><code data-trim class="bash">
+$ git commit -m "Bump version to 1.0" # lokalne
+$ git push
+$ git tag -a v1.0 -m "1.0" # lokalne
+$ git push origin v1.0
+</code></pre>
+Zadanie powtarzalne, więc po co ręcznie?
       </section>
       <section>
         <h4>Automatyzacja wersjonowania</h4>
@@ -331,10 +343,35 @@ project.version = scmVersion.version
       <section>
         <h4>Ciągła Integracja</h4>
         <img style="width: 50%" src="res/continuous-integration-2.png"/>
+        <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego oprogramowania.</p>
       </section>
       <section>
         <h4>Ciągłe Dostarczanie</h4>
-        <img src="res/ci-cd.png"/>      
+        <p>Do szczęścia brakuje nam zautomatyzowanej instalacji produktu (i monitoringu).</p>
+        <img src="res/ci-cd.png"/>  
+      </section>
+      <section>
+        <h4>Pipelines</h4>
+        
+      </section>
+      <section>
+        <h4>Monitoring</h4>
+        <ul>
+          <li>Czy system został poprawnie uruchomiony po aktualizacji?</li>
+          <li>Czy system nie padł w trakcie działania?</li>
+          <li>Jakie są najczętsze błędy w działaniu systemu?</li>
+          <li>Jak system korzysta z przydzielony zasobów sprzętowych?</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Grafana</h4>
+        Grafana jest popularnym narzędziem wizualizacji zebranych informacji na temat działania systemu.
+        <img src="res/grafana.png"/>
+      </section>
+      <section>
+        <h4>Walidacja poprawności wdrożenia</h4>
+        <p>Dashboardy, notyfikacje, JIRA</p>
+        <img src="res/puppet-dashboard.png"/>
       </section>
       <section>
         <h4>Wersje w JIRA</h4>
