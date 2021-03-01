@@ -224,6 +224,9 @@ dist/*.map
         <h4>Maven vs Gradle</h4>
       </section>
       <section>
+        <h4>Modułowość</h4>
+      </section>
+      <section>
         <h4>Narzędzia budowania aplikacji v2</h3>
           <p>W projektach opartych na JS / Node, typowo frontendowe: Angular, React, Vue itp.</p>
           <p>NPM - Node Package Manager</p>
@@ -351,11 +354,40 @@ project.version = scmVersion.version
         <img src="res/ci-cd.png"/>  
       </section>
       <section>
-        <h4>Pipelines</h4>
-        
+        <h4>Deployment pipelines</h4>
+        <ul>
+          <li>Proces wdrożenia gotowego artefaktu i składników systemu na maszynę docelową.</li>
+          <li>Proces nadzorowany lub nienadzorowany (ale monitorowany!)</li>
+          <li>Według ustalonego harmongramu wdrożeń lub ad hoc w przypadku pojawienia się nowej wersji aplikacji.</li>
+          <li>Rollback - cofnięcie do działającej wersji - w przypadku niepowodzenia.</li>
+        </ul>
       </section>
       <section>
-        <h4>Monitoring</h4>
+        <h4>Pipelines w praktyce</h4>
+        <p>Nie warto budować swoje - istnieje multum gotowych narzędzi.</p>
+        <p>W zależności od liczby docelowych maszyn i rozwoju CI/CD wybieramy jedną z poniższych opcji:</p>
+        <ul>
+          <li>Niezależne od dostawcy repozytoriów kodu: Travis, Jenkins, Bamboo, ...</li>
+          <li>Zintegrowane z repozytoriami kodu: Bitbucket Pipelines, GitHub Actions, GitLab CI/CD, ...</li>            
+        </ul>
+      </section>
+      <section>
+        <h4>Bitbucket pipelines</h4>
+        <p>Plik bitbucket-pipelines.yml umieszczamy w repozytorium (może używać skryptów gradle).</p>
+        <img style="width: 80%;" src="res/bitbucket-pipelines-configuration.png"/>
+      </section>
+      <section>
+        <h4>Bitbucket pipelines - harmonogram</h4>
+        <p>Harmonogram wdrożeń może być dowolny i uruchomiony z dowolnego brancha na dowolne środowisko.</p>
+        <img style="width: 80%;" src="res/bitbucket-pipelines.png"/>
+      </section>
+      <section>
+        <h4>Bitbucket pipelines - weryfikacja</h4>
+        <p>Łatwo możemy zweryfikować co się udało wdrożyć i na jakie środowisko.</p>
+        <img src="res/build-bitbucket.png" />
+      </section>
+      <section>
+        <h4>Monitoring - potrzeby</h4>
         <ul>
           <li>Czy system został poprawnie uruchomiony po aktualizacji?</li>
           <li>Czy system nie padł w trakcie działania?</li>
