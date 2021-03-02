@@ -101,7 +101,7 @@
           <li>Bitbucket</li>
           <li>GitLab</li>
           <li>Google Cloud</li>
-        </ul>  
+        </ul>
         <p>Ten wybór może wpłynąć na wybór innych narzędzi!</p>
       </section>
       <section>
@@ -151,7 +151,7 @@ $ git push
         <h4>Podstawy obsługi GITa</h4>
         Warto sprawdzić nawet jeśli komuś się wydaje, że dobrze zna GITa :)
         <a href="https://learngitbranching.js.org/?locale=pl">https://learngitbranching.js.org</a>
-        <img src="res/learn-git.png"/>
+        <img src="res/learn-git.png" />
       </section>
       <section>
         <h4>Commit - zasady</h4>
@@ -164,25 +164,94 @@ $ git push
         </ol>
       </section>
       <section>
-        <h4>Konflikty</h4>
-      </section>
-      <section>
         <h4>Reset</h4>
       </section>
       <section>
         <h4>Merge vs Rebase</h4>
       </section>
       <section>
-        <h4>Git Flow</h4>
-        <p>Więcej o tym w sekcji dot. wersjonowania</p>
+        <h4>Konflikty</h4>
+        <ul>
+          <li>Nieuniknione w wielosobowych zespołach pracujących nad tymi samymi funkcjami systemu.</li>
+          <li>Muszą zostać rozwiązane podczas operacji merge lub rebase.</li>
+          <li>Mogą być przyczyną dodatkowych defektów - git nie zna języków programowania :)</li>
+          <li>Po rozwiązaniu konfliktów sprawdzamy czy wciąż:</li>
+          <ol>
+            <li>aplikacja się kompiluje,</li>
+            <li>testy jednostkowe przechodzą,</li>
+            <li>funkcje w systemie działają.</li>
+          </ol>
+        </ul>
       </section>
       <section>
-        <h4>Pull Request</h4>
+        <h4>Git Flow</h4>
+        <img src="res/gitflow.png">
+      </section>
+      <section>
+        <h4>Git Flow</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>
+                Nazwa brancha
+              </th>
+              <th>
+                Przenaczenie
+              </th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+            <tr>
+              <th>
+                master / main
+              </th>
+              <th>
+                przetestowane, produkcyjne
+              </th>
+            </tr>
+            <tr>
+              <th>
+                develop
+              </th>
+              <th>
+                zbiorcze zmiany i ciągłe poprawki
+              </th>
+            </tr>
+            <tr>
+              <th>
+                feature
+              </th>
+              <th>
+                dedykowany jednej funkcjonalności
+              </th>
+            </tr>
+            <tr>
+              <th>
+                hotfix
+              </th>
+              <th>
+                nieoczekiwana poprawka
+              </th>
+            </tr>
+            <tr>
+              <th>
+                release
+              </th>
+              <th>
+                wersja testowana do wydania
+              </th>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h4>Code Review - Pull Request</h4>
       </section>
       <section>
         <h4>Gitignore</h4>
         <p>Definicja typów plików, katalogów itp. których nie chcemy mieć w repozytorium.</p>
-        <p>W zależności od używanych IDE, języków programowania i narzędzi budowania projektu może mieć różną zawartość.</p>
+        <p>W zależności od używanych IDE, języków programowania i narzędzi budowania projektu może mieć różną zawartość.
+        </p>
         <pre><code data-trim="">
 .idea/
 *.iml
@@ -283,7 +352,8 @@ dist/*.map
         <ol>
           <li>Miejsce na umieszczanie zbudowanych i gotowych do uruchomienia części aplikacji.</li>
           <li>Niezbędne dla procesu ciągłego dostarczania oprogramowania.</li>
-          <li>Szybki dostęp do wszystkich wersji oprogramowania - nasi klienci mają wybór jaką wersję chcą zainstalować.</li>
+          <li>Szybki dostęp do wszystkich wersji oprogramowania - nasi klienci mają wybór jaką wersję chcą zainstalować.
+          </li>
           <li>Proxy dla globalnych repozytoriów artefaktów.</li>
           <li>Umożliwia przechowywanie prywatnych bibliotek których nie chcemy udostępniać na świat.</li>
         </ol>
@@ -292,8 +362,9 @@ dist/*.map
         <h4>Nexus</h4>
         <ul>
           <li>Popularne i powszechnie stosowane repozytorium artefaktów różnego typu.</li>
-          <li>Może przechowywać i rejestrować jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.</li>
-          <img src="res/nexus.png"/>
+          <li>Może przechowywać i rejestrować jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.
+          </li>
+          <img src="res/nexus.png" />
         </ul>
       </section>
       <section>
@@ -308,19 +379,19 @@ dist/*.map
       <section>
         <h4>Semantic versioning</h4>
         <p>Popularna, ustandaryzowana metodyka wersjonowania: <a href="https://semver.org/">https://semver.org/</a></p>
-        <img style="width: 70%;" src="res/semver.png"/>
+        <img style="width: 70%;" src="res/semver.png" />
       </section>
       <section>
         <h4>Wersjonowanie w praktyce</h4>
         <p>Tagowanie w GIT</p>
-        <img src="res/git-tags.png"/>
-<pre><code data-trim class="bash">
+        <img src="res/git-tags.png" />
+        <pre><code data-trim class="bash">
 $ git commit -m "Bump version to 1.0" # lokalne
 $ git push
 $ git tag -a v1.0 -m "1.0" # lokalne
 $ git push origin v1.0
 </code></pre>
-Zadanie powtarzalne, więc po co ręcznie?
+        Zadanie powtarzalne, więc po co ręcznie?
       </section>
       <section>
         <h4>Automatyzacja wersjonowania</h4>
@@ -345,13 +416,14 @@ project.version = scmVersion.version
 
       <section>
         <h4>Ciągła Integracja</h4>
-        <img style="width: 50%" src="res/continuous-integration-2.png"/>
-        <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego oprogramowania.</p>
+        <img style="width: 50%" src="res/continuous-integration-2.png" />
+        <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego
+          oprogramowania.</p>
       </section>
       <section>
         <h4>Ciągłe Dostarczanie</h4>
         <p>Do szczęścia brakuje nam zautomatyzowanej instalacji produktu (i monitoringu).</p>
-        <img src="res/ci-cd.png"/>  
+        <img src="res/ci-cd.png" />
       </section>
       <section>
         <h4>Deployment pipelines</h4>
@@ -368,18 +440,18 @@ project.version = scmVersion.version
         <p>W zależności od liczby docelowych maszyn i rozwoju CI/CD wybieramy jedną z poniższych opcji:</p>
         <ul>
           <li>Niezależne od dostawcy repozytoriów kodu: Travis, Jenkins, Bamboo, ...</li>
-          <li>Zintegrowane z repozytoriami kodu: Bitbucket Pipelines, GitHub Actions, GitLab CI/CD, ...</li>            
+          <li>Zintegrowane z repozytoriami kodu: Bitbucket Pipelines, GitHub Actions, GitLab CI/CD, ...</li>
         </ul>
       </section>
       <section>
         <h4>Bitbucket pipelines</h4>
         <p>Plik bitbucket-pipelines.yml umieszczamy w repozytorium (może używać skryptów gradle).</p>
-        <img style="width: 80%;" src="res/bitbucket-pipelines-configuration.png"/>
+        <img style="width: 80%;" src="res/bitbucket-pipelines-configuration.png" />
       </section>
       <section>
         <h4>Bitbucket pipelines - harmonogram</h4>
         <p>Harmonogram wdrożeń może być dowolny i uruchomiony z dowolnego brancha na dowolne środowisko.</p>
-        <img style="width: 80%;" src="res/bitbucket-pipelines.png"/>
+        <img style="width: 80%;" src="res/bitbucket-pipelines.png" />
       </section>
       <section>
         <h4>Bitbucket pipelines - weryfikacja</h4>
@@ -398,18 +470,18 @@ project.version = scmVersion.version
       <section>
         <h4>Grafana</h4>
         Grafana jest popularnym narzędziem wizualizacji zebranych informacji na temat działania systemu.
-        <img src="res/grafana.png"/>
+        <img src="res/grafana.png" />
       </section>
       <section>
         <h4>Walidacja poprawności wdrożenia</h4>
         <p>Dashboardy, notyfikacje, JIRA</p>
-        <img src="res/puppet-dashboard.png"/>
+        <img src="res/puppet-dashboard.png" />
       </section>
       <section>
         <h4>Wersje w JIRA</h4>
-        <img src="res/versions-in-jira.png"/>
+        <img src="res/versions-in-jira.png" />
       </section>
-      
+
       <section>
         <h4>Komunikacja z zespołem</h4>
         <p>Email - legacy ale czasami przydatny</p>
