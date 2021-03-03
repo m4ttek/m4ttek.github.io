@@ -85,9 +85,6 @@
         <ul>
           <li>Nie tylko dla kodu</li>
           <li>Rozproszone lub scentralizowane</li>
-          <li><b>Git</b> is MacGyver and <b>Mercurial</b> is James Bond</li>
-          <li>Według statystyk Git występuje 80% projektów programistycznych</li>
-          <li>Legacy: SVN, CVS</li>
           <li>Stanowi portfolio programisty</li>
           <li>Niezależny od języka programowania - nie zwalnia nas od testowania poprawności wprowadzanych zmian!</li>
         </ul>
@@ -164,10 +161,9 @@ $ git push
         </ol>
       </section>
       <section>
-        <h4>Reset</h4>
-      </section>
-      <section>
         <h4>Merge vs Rebase</h4>
+        <img style="width: 50%;" src="res/rebasevsmerge.png" />
+        <p>Ogólna zasada: merge robimy na branchach zdalnych, rebase na zmianach lokalnych (commit lub branch).</p>
       </section>
       <section>
         <h4>Konflikty</h4>
@@ -201,46 +197,46 @@ $ git push
             </tr>
           </thead>
           <tbody></tbody>
-            <tr>
-              <th>
-                master / main
-              </th>
-              <th>
-                przetestowane, produkcyjne
-              </th>
-            </tr>
-            <tr>
-              <th>
-                develop
-              </th>
-              <th>
-                zbiorcze zmiany i ciągłe poprawki
-              </th>
-            </tr>
-            <tr>
-              <th>
-                feature
-              </th>
-              <th>
-                dedykowany jednej funkcjonalności
-              </th>
-            </tr>
-            <tr>
-              <th>
-                hotfix
-              </th>
-              <th>
-                nieoczekiwana poprawka
-              </th>
-            </tr>
-            <tr>
-              <th>
-                release
-              </th>
-              <th>
-                wersja testowana do wydania
-              </th>
-            </tr>
+          <tr>
+            <th>
+              master / main
+            </th>
+            <th>
+              przetestowane, produkcyjne
+            </th>
+          </tr>
+          <tr>
+            <th>
+              develop
+            </th>
+            <th>
+              zbiorcze zmiany i ciągłe poprawki
+            </th>
+          </tr>
+          <tr>
+            <th>
+              feature
+            </th>
+            <th>
+              dedykowany jednej funkcjonalności
+            </th>
+          </tr>
+          <tr>
+            <th>
+              hotfix
+            </th>
+            <th>
+              nieoczekiwana poprawka
+            </th>
+          </tr>
+          <tr>
+            <th>
+              release
+            </th>
+            <th>
+              wersja testowana do wydania
+            </th>
+          </tr>
           </tbody>
         </table>
       </section>
@@ -291,9 +287,109 @@ dist/*.map
       </section>
       <section>
         <h4>Maven vs Gradle</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>
+
+              </th>
+              <th>
+                Maven
+              </th>
+              <th>
+                Gradle
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>Język</th>
+              <th>XML</th>
+              <th>Groovy, Kotlin</th>
+            </tr>
+            <tr>
+              <th>Popularność</th>
+              <th>większość projektów</th>
+              <th>nowsze projekty</th>
+            </tr>
+            <tr>
+              <th>Wtyczki</th>
+              <th>wiele gotowych, ale trudno pisać własne</th>
+              <th>prostota tworzenia własnych rozszerzeń</th>
+            </tr>
+          </tbody>
+        </table>
       </section>
       <section>
         <h4>Modułowość</h4>
+        <img src="res/multiproject-gradle.png" />
+        <pre><code data-trim>
+// settings.gradle
+rootProject.name = "omega-psir"
+include(
+  ":framework-parent:framework-tools",
+  ":framework-parent:framework-common",
+  ":itm-parent:itm-core",
+  ":itm-parent:itm-war",
+  ":itm-parent:itm-ear"
+)
+        </code></pre>
+      </section>
+      <section>
+        <h4>build.gradle</h4>
+        <pre><code data-trim class="gradle"><script type="text/template">
+allprojects {
+  tasks.withType<JavaCompile> {
+  options.encoding = "UTF-8"
+}
+apply(plugin = "semver-plugin")
+apply(plugin = "maven-publish")
+
+repositories {
+  maven {
+      url = uri("XXX")
+      credentials {
+          username = "XXX"
+          password = "XXX"
+      }
+  }
+}
+
+configure<PublishingExtension> {
+  repositories {
+      maven {
+          url = uri("XXX")
+          credentials {
+              val nexusUser: String? by project
+              val nexusPass: String? by project
+              username = nexusUser
+              password = nexusPass
+          }
+      }
+  }
+}
+}
+
+configure(allprojects) {
+  tasks.withType<Test> {
+      useJUnitPlatform()
+  }
+  apply(plugin = "groovy")
+  apply(plugin = "checkstyle")
+  configure<CheckstyleExtension> {
+      toolVersion = "8.37"
+      configFile = rootProject.file("config/checkstyle/checks.xml")
+  }
+  val testImplementation: Configuration by configurations.getting
+
+  dependencies {
+    testImplementation("org.codehaus.groovy:groovy-all:3.0.6")
+    testImplementation("org.spockframework:spock-core:2.0-M4-groovy-3.0")
+    testImplementation("org.objenesis:objenesis:3.1")
+    testImplementation("net.bytebuddy:byte-buddy:1.10.18")
+  }
+}
+</script>   </code></pre>
       </section>
       <section>
         <h4>Narzędzia budowania aplikacji v2</h3>
