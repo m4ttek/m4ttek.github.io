@@ -60,6 +60,11 @@
                 <td>frontedowe</td>
                 <td>Visual Studio Code, Atom</td>
               </tr>
+              <tr>
+                <td>Docker, Puppet, Ansible, Bash</td>
+                <td>devops</td>
+                <td>Visual Studio Code, Vim</td>
+              </tr>
             </tbody>
           </table>
           <p>Ale zasadniczo wszystko można pisać we wszystkim :)</p>
@@ -85,11 +90,12 @@
         <ul>
           <li>Nie tylko dla kodu</li>
           <li>Rozproszone lub scentralizowane</li>
+          <li>Najpopularniejszy - GIT</li>
           <li>Stanowi portfolio programisty</li>
           <li>Niezależny od języka programowania - nie zwalnia nas od testowania poprawności wprowadzanych zmian!</li>
         </ul>
       </section>
-      <section>
+      <!-- <section>
         <h4>GIT</h4>
         <p>Gdzie cetralnie przechowujemy zmiany:</p>
         <ul>
@@ -100,16 +106,22 @@
           <li>Google Cloud</li>
         </ul>
         <p>Ten wybór może wpłynąć na wybór innych narzędzi!</p>
-      </section>
-      <section>
+      </section> -->
+      <!-- <section>
         <h4>Branch</h4>
         <p>VCS mają strukturę drzewiastą</p>
         <p>Reprezentuje robocze zmiany i nie blokuje innych prowadzonych równolegle do naszych</p>
         <p>Wybieramy co chcemy dołączyć do głównej linii</p>
         <p>Pozwala na kontrolowaną współpracę wielu osób w jednym projekcie</p>
         <p>Prostszy do wycofania w przypadku błędów</p>
-      </section>
+      </section> -->
       <section>
+        <h4>Podstawy obsługi GITa</h4>
+        Warto sprawdzić nawet jeśli komuś się wydaje, że dobrze zna GITa :)
+        <a href="https://learngitbranching.js.org/?locale=pl">https://learngitbranching.js.org</a>
+        <img src="res/learn-git.png" />
+      </section>
+      <!-- <section>
         <h4>Must have configuration</h4>
         -> wstępna konfiguracja GITa po instalacji
         <pre>
@@ -120,8 +132,8 @@ $ git config --global pull.rebase true
 					</code>
 				</pre>
         + wymiana kluczy SSH z serwerem (brak potrzeby używania hasła)
-      </section>
-      <section>
+      </section> -->
+      <!-- <section>
         <h4>Podstawy obsługi GITa</h4>
         <p>Można obsługiwać z poziomu GUI ale warto zapoznać się z konsolowymi komendami</p>
         <pre>
@@ -143,13 +155,7 @@ $ git commit -m "Commit message"
 $ git push
 					</code>
 				</pre>
-      </section>
-      <section>
-        <h4>Podstawy obsługi GITa</h4>
-        Warto sprawdzić nawet jeśli komuś się wydaje, że dobrze zna GITa :)
-        <a href="https://learngitbranching.js.org/?locale=pl">https://learngitbranching.js.org</a>
-        <img src="res/learn-git.png" />
-      </section>
+      </section> -->
       <section>
         <h4>Commit - zasady</h4>
         <ol>
@@ -322,6 +328,435 @@ dist/*.map
         </table>
       </section>
       <section>
+        <h4>Taski</h4>
+        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim class="bash">
+mkaminski@mkaminski-lap:~/work/omega-psir$ ./gradlew tasks
+Starting a Gradle Daemon, 2 incompatible and 1 stopped Daemons could not be reused, use --status for details
+
+> Task :tasks
+
+------------------------------------------------------------
+Tasks runnable from root project 'omega-psir'
+------------------------------------------------------------
+
+Build tasks
+-----------
+assemble - Assembles the outputs of this project.
+build - Assembles and tests this project.
+buildDependents - Assembles and tests this project and all projects that depend on it.
+buildNeeded - Assembles and tests this project and all projects it depends on.
+classes - Assembles main classes.
+clean - Deletes the build directory.
+ear - Generates a ear archive with all the modules, the application descriptor and the libraries.
+jar - Assembles a jar archive containing the main classes.
+testClasses - Assembles test classes.
+war - Generates a war archive with all the compiled classes, the web-app content and the libraries.
+
+Build Setup tasks
+-----------------
+init - Initializes a new Gradle build.
+wrapper - Generates Gradle wrapper files.
+
+Code generation tasks
+---------------------
+xjcGenerate - Generates Java classes from XML schema using the XJC binding compiler
+xjcGenerateTest - Generates Java classes from XML schema using the XJC binding compiler
+
+Documentation tasks
+-------------------
+groovydoc - Generates Groovydoc API documentation for the main source code.
+javadoc - Generates Javadoc API documentation for the main source code.
+
+Help tasks
+----------
+buildEnvironment - Displays all buildscript dependencies declared in root project 'omega-psir'.
+dependencies - Displays all dependencies declared in root project 'omega-psir'.
+dependencyInsight - Displays the insight into a specific dependency in root project 'omega-psir'.
+help - Displays a help message.
+javaToolchains - Displays the detected java toolchains.
+kotlinDslAccessorsReport - Prints the Kotlin code for accessing the currently available project extensions and conventions.
+outgoingVariants - Displays the outgoing variants of root project 'omega-psir'.
+projects - Displays the sub-projects of root project 'omega-psir'.
+properties - Displays the properties of root project 'omega-psir'.
+tasks - Displays the tasks runnable from root project 'omega-psir' (some of the displayed tasks may belong to subprojects).
+
+Publishing tasks
+----------------
+generateMetadataFileForMavenPublication - Generates the Gradle metadata file for publication 'maven'.
+generateMetadataFileForPlatformPublication - Generates the Gradle metadata file for publication 'platform'.
+generatePomFileForMavenPublication - Generates the Maven POM file for publication 'maven'.
+generatePomFileForPlatformPublication - Generates the Maven POM file for publication 'platform'.
+publish - Publishes all publications produced by this project.
+publishAllPublicationsToMavenRepository - Publishes all Maven publications produced by this project to the maven repository.
+publishMavenPublicationToMavenLocal - Publishes Maven publication 'maven' to the local Maven repository.
+publishMavenPublicationToMavenRepository - Publishes Maven publication 'maven' to Maven repository 'maven'.
+publishPlatformPublicationToMavenLocal - Publishes Maven publication 'platform' to the local Maven repository.
+publishPlatformPublicationToMavenRepository - Publishes Maven publication 'platform' to Maven repository 'maven'.
+publishToMavenLocal - Publishes all Maven publications produced by this project to the local Maven cache.
+
+Semver tasks
+------------
+bumpMajor - Increments Major version number.
+bumpMinor - Increments Minor version number.
+bumpPatch - Increments Patch version number.
+currentVersion - Prints version to stdout.
+
+Shadow tasks
+------------
+knows - Do you know who knows?
+shadowJar - Create a combined JAR of project and runtime dependencies
+
+Verification tasks
+------------------
+check - Runs all checks.
+test - Runs the unit tests.
+
+Rules
+-----
+Pattern: clean<TaskName>: Cleans the output files of a task.
+Pattern: build<ConfigurationName>: Assembles the artifacts of a configuration.
+
+To see all tasks and more detail, run gradlew tasks --all
+
+To see more detail about a task, run gradlew help --task <task>
+</code>
+        </pre>
+      </section>
+      <section>
+        <h4>Dependency hell</h4>
+        <div>Nasz kod to praktycznie zawsze mniej niż 1%</div>
+        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+mkaminski@mkaminski-lap:~/work/report-engine$ ./gradlew dependencies
+
+> Task :dependencies
+
+------------------------------------------------------------
+Root project 'report-engine'
+------------------------------------------------------------
+
+annotationProcessor - Annotation processors and their dependencies for source set 'main'.
+\--- org.projectlombok:lombok:1.18.20
+
+api - API dependencies for source set 'main'. (n)
+No dependencies
+
+apiElements - API elements for main. (n)
+No dependencies
+
+archives - Configuration for archive artifacts. (n)
+No dependencies
+
+checkstyle - The Checkstyle libraries to be used for this project.
+\--- com.puppycrawl.tools:checkstyle:8.45
+     +--- info.picocli:picocli:4.6.1
+     +--- antlr:antlr:2.7.7
+     +--- org.antlr:antlr4-runtime:4.9.2
+     +--- commons-beanutils:commons-beanutils:1.9.4
+     |    \--- commons-collections:commons-collections:3.2.2
+     +--- com.google.guava:guava:30.1.1-jre
+     |    +--- com.google.guava:failureaccess:1.0.1
+     |    +--- com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+     |    +--- com.google.code.findbugs:jsr305:3.0.2
+     |    +--- org.checkerframework:checker-qual:3.8.0
+     |    +--- com.google.errorprone:error_prone_annotations:2.5.1
+     |    \--- com.google.j2objc:j2objc-annotations:1.3
+     +--- org.reflections:reflections:0.9.12
+     |    \--- org.javassist:javassist:3.26.0-GA
+     \--- net.sf.saxon:Saxon-HE:10.5
+compileClasspath - Compile classpath for source set 'main'.
++--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js-scriptengine:21.2.0
+|    \--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js:21.2.0
+|    +--- org.graalvm.regex:regex:21.2.0
+|    |    \--- org.graalvm.truffle:truffle-api:21.2.0
+|    |         \--- org.graalvm.sdk:graal-sdk:21.2.0
+|    +--- org.graalvm.truffle:truffle-api:21.2.0 (*)
+|    +--- org.graalvm.sdk:graal-sdk:21.2.0
+|    \--- com.ibm.icu:icu4j:69.1
+\--- org.projectlombok:lombok:1.18.20
+
+compileOnly - Compile only dependencies for source set 'main'. (n)
+No dependencies
+
+compileOnlyApi - Compile only API dependencies for source set 'main'. (n)
+No dependencies
+
+default - Configuration for default artifacts. (n)
+No dependencies
+
+implementation - Implementation only dependencies for source set 'main'. (n)
++--- org.graalvm.sdk:graal-sdk:21.2.0 (n)
++--- org.graalvm.js:js-scriptengine:21.2.0 (n)
+\--- org.graalvm.js:js:21.2.0 (n)
+
+lombok
+\--- org.projectlombok:lombok:1.18.20
+
+runtimeClasspath - Runtime classpath of source set 'main'.
++--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js-scriptengine:21.2.0
+|    \--- org.graalvm.sdk:graal-sdk:21.2.0
+\--- org.graalvm.js:js:21.2.0
+     +--- org.graalvm.regex:regex:21.2.0
+     |    \--- org.graalvm.truffle:truffle-api:21.2.0
+     |         \--- org.graalvm.sdk:graal-sdk:21.2.0
+     +--- org.graalvm.truffle:truffle-api:21.2.0 (*)
+     +--- org.graalvm.sdk:graal-sdk:21.2.0
+     \--- com.ibm.icu:icu4j:69.1
+
+runtimeElements - Elements of runtime for main. (n)
+No dependencies
+
+runtimeOnly - Runtime only dependencies for source set 'main'. (n)
+No dependencies
+
+sourcesElements - sources elements for main. (n)
+No dependencies
+
+testAnnotationProcessor - Annotation processors and their dependencies for source set 'test'.
+\--- org.projectlombok:lombok:1.18.20
+
+testCompileClasspath - Compile classpath for source set 'test'.
++--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js-scriptengine:21.2.0
+|    \--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js:21.2.0
+|    +--- org.graalvm.regex:regex:21.2.0
+|    |    \--- org.graalvm.truffle:truffle-api:21.2.0
+|    |         \--- org.graalvm.sdk:graal-sdk:21.2.0
+|    +--- org.graalvm.truffle:truffle-api:21.2.0 (*)
+|    +--- org.graalvm.sdk:graal-sdk:21.2.0
+|    \--- com.ibm.icu:icu4j:69.1
++--- org.projectlombok:lombok:1.18.20
++--- org.objenesis:objenesis:3.2
++--- net.bytebuddy:byte-buddy:1.10.18 -> 1.11.0
++--- org.codehaus.groovy:groovy-all:3.0.6
+|    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-ant:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- org.apache.ant:ant:1.10.8
+|    +--- org.codehaus.groovy:groovy-astbuilder:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-cli-picocli:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-console:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-datetime:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-docgenerator:3.0.6
+|    +--- org.codehaus.groovy:groovy-groovydoc:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- com.github.javaparser:javaparser-core:3.16.1
+|    +--- org.codehaus.groovy:groovy-groovysh:3.0.6
+|    +--- org.codehaus.groovy:groovy-jmx:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-json:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-jsr223:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-macro:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-nio:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-servlet:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-sql:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-swing:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-templates:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-test:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- junit:junit:4.13
+|    |         \--- org.hamcrest:hamcrest-core:1.3
+|    +--- org.codehaus.groovy:groovy-test-junit5:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- org.junit.jupiter:junit-jupiter-api:5.7.0 -> 5.7.2
+|    |         +--- org.junit:junit-bom:5.7.2
+|    |         |    +--- org.junit.jupiter:junit-jupiter-api:5.7.2 (c)
+|    |         |    +--- org.junit.platform:junit-platform-engine:1.7.2 (c)
+|    |         |    +--- org.junit.platform:junit-platform-testkit:1.7.2 (c)
+|    |         |    +--- org.junit.platform:junit-platform-commons:1.7.2 (c)
+|    |         |    \--- org.junit.platform:junit-platform-launcher:1.7.2 (c)
+|    |         \--- org.opentest4j:opentest4j:1.2.0
+|    +--- org.codehaus.groovy:groovy-testng:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    \--- org.codehaus.groovy:groovy-xml:3.0.6
+|         \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+\--- org.spockframework:spock-core:2.0-groovy-3.0
+     +--- org.junit:junit-bom:5.7.2 (*)
+     +--- org.codehaus.groovy:groovy:3.0.8
+     +--- org.junit.platform:junit-platform-engine -> 1.7.2
+     |    +--- org.junit:junit-bom:5.7.2 (*)
+     |    +--- org.apiguardian:apiguardian-api:1.1.0
+     |    +--- org.opentest4j:opentest4j:1.2.0
+     |    \--- org.junit.platform:junit-platform-commons:1.7.2
+     |         +--- org.junit:junit-bom:5.7.2 (*)
+     |         \--- org.apiguardian:apiguardian-api:1.1.0
+     +--- org.junit.platform:junit-platform-testkit -> 1.7.2
+     |    +--- org.junit:junit-bom:5.7.2 (*)
+     |    +--- org.apiguardian:apiguardian-api:1.1.0
+     |    +--- org.assertj:assertj-core:3.16.1
+     |    +--- org.opentest4j:opentest4j:1.2.0
+     |    \--- org.junit.platform:junit-platform-launcher:1.7.2
+     |         +--- org.junit:junit-bom:5.7.2 (*)
+     |         +--- org.apiguardian:apiguardian-api:1.1.0
+     |         \--- org.junit.platform:junit-platform-engine:1.7.2 (*)
+     +--- org.hamcrest:hamcrest:2.2
+     +--- org.jetbrains:annotations:20.1.0
+     +--- org.ow2.asm:asm:9.1
+     +--- net.bytebuddy:byte-buddy:1.11.0
+     +--- cglib:cglib-nodep:3.3.0
+     \--- org.objenesis:objenesis:3.2
+
+testCompileOnly - Compile only dependencies for source set 'test'. (n)
+No dependencies
+
+testImplementation - Implementation only dependencies for source set 'test'. (n)
++--- org.objenesis:objenesis:3.2 (n)
++--- net.bytebuddy:byte-buddy:1.10.18 (n)
++--- org.codehaus.groovy:groovy-all:3.0.6 (n)
+\--- org.spockframework:spock-core:2.0-groovy-3.0 (n)
+
+testRuntimeClasspath - Runtime classpath of source set 'test'.
++--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js-scriptengine:21.2.0
+|    \--- org.graalvm.sdk:graal-sdk:21.2.0
++--- org.graalvm.js:js:21.2.0
+|    +--- org.graalvm.regex:regex:21.2.0
+|    |    \--- org.graalvm.truffle:truffle-api:21.2.0
+|    |         \--- org.graalvm.sdk:graal-sdk:21.2.0
+|    +--- org.graalvm.truffle:truffle-api:21.2.0 (*)
+|    +--- org.graalvm.sdk:graal-sdk:21.2.0
+|    \--- com.ibm.icu:icu4j:69.1
++--- org.objenesis:objenesis:3.2
++--- net.bytebuddy:byte-buddy:1.10.18 -> 1.11.0
++--- org.codehaus.groovy:groovy-all:3.0.6
+|    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-ant:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    +--- org.apache.ant:ant:1.10.8
+|    |    |    \--- org.apache.ant:ant-launcher:1.10.8
+|    |    +--- org.apache.ant:ant-junit:1.10.8
+|    |    |    \--- org.apache.ant:ant:1.10.8 (*)
+|    |    +--- org.apache.ant:ant-launcher:1.10.8
+|    |    +--- org.apache.ant:ant-antlr:1.10.8
+|    |    \--- org.codehaus.groovy:groovy-groovydoc:3.0.6
+|    |         +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |         +--- com.github.javaparser:javaparser-core:3.16.1
+|    |         +--- org.codehaus.groovy:groovy-templates:3.0.6
+|    |         |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |         |    \--- org.codehaus.groovy:groovy-xml:3.0.6
+|    |         |         \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |         \--- org.codehaus.groovy:groovy-docgenerator:3.0.6
+|    |              +--- org.codehaus.groovy:groovy-templates:3.0.6 (*)
+|    |              +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |              \--- com.thoughtworks.qdox:qdox:1.12.1
+|    +--- org.codehaus.groovy:groovy-astbuilder:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-cli-picocli:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- info.picocli:picocli:4.5.1
+|    +--- org.codehaus.groovy:groovy-console:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    +--- org.codehaus.groovy:groovy-templates:3.0.6 (*)
+|    |    \--- org.codehaus.groovy:groovy-swing:3.0.6
+|    |         \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-datetime:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-docgenerator:3.0.6 (*)
+|    +--- org.codehaus.groovy:groovy-groovydoc:3.0.6 (*)
+|    +--- org.codehaus.groovy:groovy-groovysh:3.0.6
+|    |    +--- org.codehaus.groovy:groovy-templates:3.0.6 (*)
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    +--- org.codehaus.groovy:groovy-console:3.0.6 (*)
+|    |    +--- org.codehaus.groovy:groovy-xml:3.0.6 (*)
+|    |    \--- jline:jline:2.14.6
+|    +--- org.codehaus.groovy:groovy-jmx:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-json:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-jsr223:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-macro:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-nio:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-servlet:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    +--- org.codehaus.groovy:groovy-templates:3.0.6 (*)
+|    |    \--- org.codehaus.groovy:groovy-xml:3.0.6 (*)
+|    +--- org.codehaus.groovy:groovy-sql:3.0.6
+|    |    \--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    +--- org.codehaus.groovy:groovy-swing:3.0.6 (*)
+|    +--- org.codehaus.groovy:groovy-templates:3.0.6 (*)
+|    +--- org.codehaus.groovy:groovy-test:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- junit:junit:4.13
+|    |         \--- org.hamcrest:hamcrest-core:1.3
+|    +--- org.codehaus.groovy:groovy-test-junit5:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    +--- org.junit.jupiter:junit-jupiter-api:5.7.0 -> 5.7.2
+|    |    |    +--- org.junit:junit-bom:5.7.2
+|    |    |    |    +--- org.junit.jupiter:junit-jupiter-api:5.7.2 (c)
+|    |    |    |    +--- org.junit.jupiter:junit-jupiter-engine:5.7.2 (c)
+|    |    |    |    +--- org.junit.platform:junit-platform-engine:1.7.2 (c)
+|    |    |    |    +--- org.junit.platform:junit-platform-launcher:1.7.2 (c)
+|    |    |    |    +--- org.junit.platform:junit-platform-testkit:1.7.2 (c)
+|    |    |    |    \--- org.junit.platform:junit-platform-commons:1.7.2 (c)
+|    |    |    +--- org.opentest4j:opentest4j:1.2.0
+|    |    |    \--- org.junit.platform:junit-platform-commons:1.7.2
+|    |    |         +--- org.junit:junit-bom:5.7.2 (*)
+|    |    |         \--- org.apiguardian:apiguardian-api:1.1.0
+|    |    +--- org.junit.platform:junit-platform-launcher:1.7.0 -> 1.7.2
+|    |    |    +--- org.junit:junit-bom:5.7.2 (*)
+|    |    |    +--- org.apiguardian:apiguardian-api:1.1.0
+|    |    |    \--- org.junit.platform:junit-platform-engine:1.7.2
+|    |    |         +--- org.junit:junit-bom:5.7.2 (*)
+|    |    |         +--- org.apiguardian:apiguardian-api:1.1.0
+|    |    |         +--- org.opentest4j:opentest4j:1.2.0
+|    |    |         \--- org.junit.platform:junit-platform-commons:1.7.2 (*)
+|    |    \--- org.junit.jupiter:junit-jupiter-engine:5.7.0 -> 5.7.2
+|    |         +--- org.junit:junit-bom:5.7.2 (*)
+|    |         +--- org.junit.platform:junit-platform-engine:1.7.2 (*)
+|    |         \--- org.junit.jupiter:junit-jupiter-api:5.7.2 (*)
+|    +--- org.codehaus.groovy:groovy-testng:3.0.6
+|    |    +--- org.codehaus.groovy:groovy:3.0.6 -> 3.0.8
+|    |    \--- org.testng:testng:7.3.0
+|    |         \--- com.beust:jcommander:1.78
+|    \--- org.codehaus.groovy:groovy-xml:3.0.6 (*)
+\--- org.spockframework:spock-core:2.0-groovy-3.0
+     +--- org.junit:junit-bom:5.7.2 (*)
+     +--- org.codehaus.groovy:groovy:3.0.8
+     +--- org.junit.platform:junit-platform-engine -> 1.7.2 (*)
+     +--- org.junit.platform:junit-platform-testkit -> 1.7.2
+     |    +--- org.junit:junit-bom:5.7.2 (*)
+     |    +--- org.apiguardian:apiguardian-api:1.1.0
+     |    +--- org.assertj:assertj-core:3.16.1
+     |    +--- org.opentest4j:opentest4j:1.2.0
+     |    \--- org.junit.platform:junit-platform-launcher:1.7.2 (*)
+     +--- org.hamcrest:hamcrest:2.2
+     +--- org.jetbrains:annotations:20.1.0
+     +--- org.ow2.asm:asm:9.1
+     +--- net.bytebuddy:byte-buddy:1.11.0
+     +--- cglib:cglib-nodep:3.3.0
+     \--- org.objenesis:objenesis:3.2
+
+testRuntimeOnly - Runtime only dependencies for source set 'test'. (n)
+No dependencies
+
+(c) - dependency constraint
+(*) - dependencies omitted (listed previously)
+
+(n) - Not resolved (configuration is not meant to be resolved)
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+        </code></pre>
+      </section>
+      <section>
         <h4>Modułowość</h4>
         <img src="res/multiproject-gradle.png" />
         <pre><code data-trim>
@@ -459,7 +894,7 @@ configure(allprojects) {
         <h4>Nexus</h4>
         <ul>
           <li>Popularne i powszechnie stosowane repozytorium artefaktów różnego typu.</li>
-          <li>Może przechowywać i rejestrować jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.
+          <li>Może przechowywać i przechowywać rejestr zbudowanych plików typu jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.
           </li>
           <img src="res/nexus.png" />
         </ul>
@@ -633,6 +1068,9 @@ project.version = scmVersion.version
       hash: true,
       slideNumber: true,
       progress: true,
+      margin: 0.04,
+      transition: 'slide',
+      backgroundTransition: 'slide',
       // Learn about plugins: https://revealjs.com/plugins/
       plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
     });
