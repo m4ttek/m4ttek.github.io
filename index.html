@@ -20,7 +20,9 @@
     <div class="slides">
       <section>
         <h2 class="r-fit-text">Warsztat programisty</h3>
-          <p>Mateusz Kamiński</p>
+          <p>Mateusz Kamiński<p>
+          <a href="mailto:m.kaminski@sages.com.pl">m.kaminski@sages.com.pl</a>
+          <br/>
           <img width="200" src="res/sages_white_RGB.svg">
           <!-- <aside class="notes">
 						Shhh, these are your private notes 📝
@@ -29,7 +31,7 @@
       <section>
         <h3>Agenda</h3>
         <ol>
-          <li>Pisanie kodu - IDE</li>
+          <li>Pisanie kodu - IDE, środowisko programistyczne</li>
           <li>Repozytoria kodu - Version Control Systems</li>
           <li>Narzędzia budowania aplikacji</li>
           <li>Wersjonowanie aplikacji</li>
@@ -86,6 +88,13 @@
               <a href="https://tabnine.com">Tabnine</a>
             </li>
           </ul>
+      </section>
+      <section>
+        <h4>Konfiguracja własnego środowiska</h4>
+        <p>Oprócz IDE zwykle potrzebujemy dodatkowych narzędzi, językowych SDK (development kit), dockerów, serwerów aplikacyjnych itp.</p>
+        <img src="res/sdkman.png">
+        <a href="https://sdkman.io/">SDKMAN!</a>
+        <p>Prosta aplikacja konsolowa do instalacji, aktualizacji wszelkich narzędzi potrzebnych do dewelopmentu.</p>
       </section>
       <section>
         <h4>Version Control System</h4>
@@ -947,16 +956,20 @@ group = "pl.sages.site"
 project.version = scmVersion.version
 </script></code></pre>
       </section>
-
+      <section>
+        <h4>CI / CD</h4>
+        <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego
+          oprogramowania.</p>
+        <img src="res/cicd.png" />
+      </section>
       <section>
         <h4>Ciągła Integracja</h4>
         <img style="width: 50%" src="res/continuous-integration-2.png" />
-        <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego
-          oprogramowania.</p>
+        <p>Zautomatyzowanie prac programistycznych</p>
       </section>
       <section>
         <h4>Ciągłe Dostarczanie</h4>
-        <p>Dodatek: zautomatyzowana instalacja produktu</p>
+        <p>Dodatek: zautomatyzowane wdrożenie produktu</p>
         <img src="res/ci-cd.png" />
       </section>
       <section>
@@ -994,7 +1007,7 @@ project.version = scmVersion.version
       </section>
       <section>
         <h4>Zaawansowane wdrożenie</h4>
-        <p>Technologie: Puppet, Ansible, Chef, docker-compose, ...</p>
+        <p>Technologie: Puppet, Ansible, Chef, Kubernetes, ...</p>
         <ul  style="font-size: 30px">
           <li>jednolita konfiguracja środowiska docelowego</li>
           <li>automatyzacja i uproszczone zarządzanie z poziomu centralnego środowiska (architektura klient-serwer)</li>
@@ -1009,13 +1022,14 @@ project.version = scmVersion.version
         <li>zakładanie użytkowników systemowych i nadawanie im uprawnień</li>
         <li>tworzenie katalogów i plików z wybraną zawartością</li>
         <li>rejestracja i konfiguracja serwisów (usług) systemowych</li>
+        <li>instalacja certyfikatów SSL</li>
       </ul>
       </section>
       <section>
         <h4>Analiza statyczna kodu</h4>
         <ul>
           <li>Linter - wykrywanie potencjalnych błędów bez testowania aplikacji (oszczędność czasu)</li>
-          <li>Czystość kodu - stosowanie zasad ustalanych w każdym zespole</li>
+          <li>Czystość oraz jakość kodu - stosowanie zasad ustalanych w każdym zespole</li>
           <li>Podczas budowania artefaktów lub na niezależnym serwerze - SonarQube</li>
           <img src="res/dev-cycle.png"/>
         </ul>
