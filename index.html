@@ -96,7 +96,7 @@
         <a href="https://sdkman.io/">SDKMAN!</a>
         <p>Prosta aplikacja konsolowa do instalacji, aktualizacji wszelkich narzędzi potrzebnych do dewelopmentu.</p>
       </section>
-      <section>
+      <!--<section>
         <h4>Version Control System</h4>
         <ul>
           <li>Nie tylko dla kodu</li>
@@ -105,7 +105,7 @@
           <li>Stanowi portfolio programisty</li>
           <li>Niezależny od języka programowania - nie zwalnia nas od testowania poprawności wprowadzanych zmian!</li>
         </ul>
-      </section>
+      </section>-->
       <!-- <section>
         <h4>GIT</h4>
         <p>Gdzie cetralnie przechowujemy zmiany:</p>
@@ -177,7 +177,7 @@ $ git push
           <li>Przed stworzeniem sprawdzamy czy aplikacja buduje się i działa poprawnie (w zakresie naszych zmian).</li>
         </ol>
       </section>
-      <section>
+      <!--<section>
         <h4>Merge vs Rebase</h4>
         <img style="width: 50%;" src="res/rebasevsmerge.png" />
         <p>Ogólna zasada: merge robimy na branchach zdalnych, rebase na zmianach lokalnych (commit lub branch).</p>
@@ -195,7 +195,7 @@ $ git push
             <li>funkcje w systemie działają.</li>
           </ol>
         </ul>
-      </section>
+      </section>-->
       <section>
         <h4>Git Flow</h4>
         <img src="res/gitflow.png">
@@ -261,7 +261,7 @@ $ git push
         <h4>Code Review - Pull Request</h4>
         <img src="res/codereview.png" />
       </section>
-      <section>
+      <!--<section>
         <h4>Gitignore</h4>
         <p>Definicja typów plików, katalogów itp. których nie chcemy mieć w repozytorium.</p>
         <p>W zależności od używanych IDE, języków programowania i narzędzi budowania projektu może mieć różną zawartość.
@@ -280,7 +280,7 @@ node_modules/
 .sass-cache
 dist/*.map
         </code></pre>
-      </section>
+      </section>-->
       <section>
         <h4>Narzędzia budowania aplikacji</h3>
           <ul>
@@ -891,6 +891,15 @@ configure(allprojects) {
 				</code></pre>
       </section>
       <section>
+        <h4>Analiza statyczna kodu</h4>
+        <ul>
+          <li>Linter - wykrywanie potencjalnych błędów bez testowania aplikacji (oszczędność czasu)</li>
+          <li>Czystość oraz jakość kodu - stosowanie zasad ustalanych w każdym zespole</li>
+          <li>Podczas budowania artefaktów lub na niezależnym serwerze - SonarQube</li>
+          <img src="res/dev-cycle.png"/>
+        </ul>
+      </section>
+      <section>
         <h4>Repozytorium artefaktów</h4>
         <ol>
           <li>Miejsce na umieszczanie zbudowanych i gotowych do uruchomienia części aplikacji.</li>
@@ -992,6 +1001,10 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         </ul>
       </section>
       <section>
+        <h4>Jenkins</h4>
+        <img src="res/jenkins.PNG">
+      </section>
+      <!--<section>
         <h4>Bitbucket pipelines</h4>
         <p>Plik bitbucket-pipelines.yml umieszczamy w repozytorium (może używać skryptów gradle).</p>
         <img style="width: 80%;" src="res/bitbucket-pipelines-configuration.png" />
@@ -1005,7 +1018,7 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         <h4>Bitbucket pipelines - weryfikacja</h4>
         <p>Łatwo możemy zweryfikować co się udało wdrożyć i na jakie środowisko.</p>
         <img src="res/build-bitbucket.png" />
-      </section>
+      </section>-->
       <section>
         <h4>Zaawansowane wdrożenie</h4>
         <p>Technologie: Puppet, Ansible, Chef, Kubernetes, ...</p>
@@ -1026,15 +1039,7 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         <li>instalacja certyfikatów SSL</li>
       </ul>
       </section>
-      <section>
-        <h4>Analiza statyczna kodu</h4>
-        <ul>
-          <li>Linter - wykrywanie potencjalnych błędów bez testowania aplikacji (oszczędność czasu)</li>
-          <li>Czystość oraz jakość kodu - stosowanie zasad ustalanych w każdym zespole</li>
-          <li>Podczas budowania artefaktów lub na niezależnym serwerze - SonarQube</li>
-          <img src="res/dev-cycle.png"/>
-        </ul>
-      </section>
+
       <section>
         <h4>Monitoring - potrzeby</h4>
         <ul>
@@ -1049,10 +1054,48 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         Grafana jest popularnym narzędziem wizualizacji zebranych informacji na temat działania systemu.
         <img src="res/grafana.png" />
       </section>
-      <section>
+      <!--<section>
         <h4>Walidacja poprawności wdrożenia</h4>
         <p>Dashboardy, notyfikacje, JIRA</p>
         <img src="res/puppet-dashboard.png" />
+      </section>-->
+      <section>
+        <h4>Alerty</h4>
+        <ul>
+          <li>błyskawiczne powiadomienia o problemach krytycznych</li>
+          <li>ale też wyprzedzanie faktów przez ostrzeżenia</li>
+          <li>możliwość ustalenia momentów "ciszy"</li>
+          <li>różnorodne kanały - dowolny komunikator, mail, sms, Jira</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Prometheus - alertmanager</h4>
+        <img src="res/alertmanager.PNG"/>
+      </section>
+      <section>
+        <h4>Co monitorujemy</h4>
+        <ul>
+          <li>czy nasza aplikacja jest uruchomiona i dostępna dla użytkowników</li>
+          <li>zajętość dysku, pamięci RAM, wykorzystanie CPU</li>
+          <li>wydajność aplikacji, zwłaszcza baz danych - krytyczne zapytania</li>
+          <li>logi aplikacji i występujące błędy</li>
+        </ul>
+      </section>
+      <section>
+        <h4>Alertmanager - slack</h4>
+        <img src="res/alertmananger-slack.PNG"/>
+      </section>
+      <section>
+        <h4>Infrastruktura devopsu</h4>
+        <img src="res/simple-devops.png"/>
+        <p style="font-size: x-large;">Przykładowa infrastruktura w której Jenkins pobiera kod
+          oprogramowania z repozytorium Bitbucket, następnie buduje oraz testuje aplikację 
+          i na koniec zbudowany artefakt umieszcza w Nexusie. 
+        </p>
+        <p style="font-size: x-large;">W kolejnym kroku Jenkins uruchamia narzędzie Puppet (Master) przeprowadzający wdrożenie aplikacji 
+          na docelowych maszynach.</p>
+        <p style="font-size: x-large;">Działanie aplikacji jest monitorowane i prezentowane przez zestaw narzędzi: 
+          Grafana, Prometheus, Alertmanager, Kibana, Slack.</p>
       </section>
       <section>
         <h4>JIRA</h4>
@@ -1069,7 +1112,18 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
       </section>
       <section>
         <h4>Workflow zadania</h4>
-        <img src="res/jira-workflow.png"/>
+        <img style="width: 50%;" src="res/jira-workflow.png"/>
+        <p>Typowy workflow zadania programistycznego z możliwymi "nawrotami".</p>
+      </section>
+      <section>
+        <h4>Integracja z repozytorium kodu</h4>
+        <img src="res/jira-dev.PNG"/>
+        <p>Szybkie podejrzenie kluczowych informacji na temat realizacji zadania i gotowości do wdrożenia.</p>
+      </section>
+      <section>
+        <h4>Logowanie czasu</h4>
+        <img style="width: 50%;" src="res/jira-logtime.PNG"/>
+        <p>W pełni zintegrowane narzędzie do szacowania czasu oraz tracker czasu poświęconego na realizację zadań.</p>
       </section>
       <section>
         <h4>Zarządzie wydawaniem wersji</h4>
