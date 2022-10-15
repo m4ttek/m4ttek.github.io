@@ -24,25 +24,32 @@
           <a href="mailto:m.kaminski@sages.com.pl">m.kaminski@sages.com.pl</a>
           <br/>
           <img width="200" src="res/sages_white_RGB.svg">
-          <!-- <aside class="notes">
-						Shhh, these are your private notes 📝
-					</aside> -->
       </section>
       <section>
         <h3>Agenda</h3>
         <ol>
           <li>Pisanie kodu - IDE, środowisko programistyczne</li>
-          <li>Workflow pracy zespołowej</li>
-          <li>Narzędzia budowania aplikacji</li>
+          <li>Workflow pracy zespołowej w systemie kontroli wersji GIT</li>
+          <li>Projekt programistyczny i narzędzia budowania aplikacji</li>
           <li>Wersjonowanie aplikacji</li>
           <li>Repozytoria artefaktów</li>
           <li>Ciągła Integracja i Ciągłe dostarczanie</li>
           <li>Zarządzanie projektem programistycznym i nie tylko - Attlasian JIRA</li>
         </ol>
       </section>
+      <section>
+        <h4>Co wchodzi w skład środowiska programistycznego</h4>
+        <ol>
+          <li>System operacyjny, konsola</li>
+          <li>Zaawansowany edytor tekstowy - Integrated Development Environment (IDE)</li>
+          <li>Kompilator języka, Software Development Kit</li>
+          <li>System kontroli wersji - GIT</li>
+          <li>Narzędzia wspierające wytwarzanie oprogramowania</li>
+        </ol>
+      </section>
       <section style="font-size: 25pt">
         <h4>IDE</h3>
-          <p>Dobierany w zależności od typu (języka) projektu.</p>
+          <p>Dobierany w zależności od typu i języka programowania używanego w projekcie programistycznym.</p>
           <table>
             <thead>
               <tr>
@@ -53,9 +60,9 @@
             </thead>
             <tbody>
               <tr>
-                <td>Java, Kotlin, Scala</td>
+                <td>Java, Kotlin, Scala, Python</td>
                 <td>backendowe</td>
-                <td>Intellij IDEA, Eclipse</td>
+                <td>Intellij IDEA, PyCharm, Eclipse</td>
               </tr>
               <tr>
                 <td>Javascript, Typescript, CSS, HTML</td>
@@ -63,7 +70,7 @@
                 <td>Visual Studio Code, Atom, Sublime</td>
               </tr>
               <tr>
-                <td>Docker, Puppet, Ansible, Bash</td>
+                <td>Bash, Docker, Puppet, Ansible</td>
                 <td>devops</td>
                 <td>Visual Studio Code, Vim</td>
               </tr>
@@ -89,12 +96,40 @@
             </li>
           </ul>
       </section>
+      <section>
+        <h4>Lintowanie</h4>
+        <p>Lintowanie to proces wyszukiwania podejrzanych miejsc / struktur w kodzie oraz błędów stylistycznych, zgodnie ze zdefiniowanymi regułami dla danego języka programowania.</p>
+        <p>Popularnym narzędziem do analizy kodu jest <a href="https://www.sonarqube.org/">SonarQube</a>.</p>
+        <p>Dzięki analizie możemy podwyższyć jakość naszego kodu i unikać różnego rodzaju błędów (czasami trudnych do wykrycia).</p>
+      </section>
       <section style="font-size: 25pt">
-        <h4>Konfiguracja własnego środowiska</h4>
-        <p>Oprócz IDE zwykle potrzebujemy dodatkowych narzędzi, językowych SDK (development kit), dockerów, serwerów aplikacyjnych itp.</p>
+        <h4>Software Development Kit Management</h4>
+        <p>Oprócz IDE zwykle potrzebujemy dodatkowych narzędzi, np. SDK, dockera, serwera aplikacyjnego.</p>
+        <p>SDKman to prosta aplikacja konsolowa do instalacji i aktualizacji różnych narzędzi potrzebnych do dewelopmentu.</p>
         <img src="res/sdkman.png">
         <a href="https://sdkman.io/">SDKMAN!</a>
-        <p>Prosta aplikacja konsolowa do instalacji, aktualizacji wszelkich narzędzi potrzebnych do dewelopmentu.</p>
+      </section>
+      <section style="font-size: 24pt">
+        <h4>Instalacja</h4>
+        <p>Wykonujemy komendę w terminalu (w przypadku Windowsa w terminalu WSL):</p>
+        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+          curl -s "https://get.sdkman.io" | bash
+        </code></pre>
+        <p>Gdy instacja się zakończy to restartujemy terminal i sprawdzamy czy aplikacja SDKMAN jest dostępna w terminalu:</p>
+      <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+        sdk version
+      </code></pre>  
+      </section>
+      <section>
+        <h4>Przykład użycia</h4>
+        Instalacja Java Development Kit
+        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+          sdk install java
+        </code></pre>
+        Weryfikacja:
+        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+          java -version
+        </code></pre>  
       </section>
       <!--<section>
         <h4>Version Control System</h4>
@@ -257,39 +292,63 @@ $ git push
           </tbody>
         </table>
       </section>
-      <!-- <section>
-        <h4>Code Review - Pull Request</h4>
-        <img src="res/codereview.png" />
-      </section> -->
-      <!--<section>
-        <h4>Gitignore</h4>
-        <p>Definicja typów plików, katalogów itp. których nie chcemy mieć w repozytorium.</p>
-        <p>W zależności od używanych IDE, języków programowania i narzędzi budowania projektu może mieć różną zawartość.
-        </p>
-        <pre><code data-trim="">
-.idea/
-*.iml
-*.iws
-*.eml
-out/
-.DS_Store
-.svn
-log/*.log
-tmp/**
-node_modules/
-.sass-cache
-dist/*.map
-        </code></pre>
-      </section>-->
+      <section style="font-size: 26pt">
+        <h4>Projekt programistyczny</h4>
+        <p>Nasze projekty mogą mieć wiele plików z kodem źródłowym i innych typów plików.</p>
+        <p>Przy tak dużym projekcie programistycznym niezbędna jest automatyzacja kompilacji i tworzenia pliku wynikowego.</p>
+        <p>W tym celu posługujemy się build toolem jakim jest maven lub gradle oraz korzystamy z możliwości jakie daje IDE.</p>
+        <p>Dobrze przygotowany projekt powinien być możliwie prosty do uruchomienia (jedną komendą).</p>
+      </section>
+      <section style="font-size: 26pt">
+        <h4>Zależności w projekcie programistycznym</h4>
+        <p>Zależnością nazywamy (skompilowany) kod w formie biblioteki lub frameworku, który nie powstał w ramach danego projektu, jednak jest wymagany do:</p>
+        <ul>
+            <li>skompilowania kodu</li>
+            <li>działania aplikacji,</li>
+            <li>przeprowadzenia testów.</li>
+        </ul>
+      </section>
+      <section style="font-size: 26pt">
+        <h4>Zależności tranzytywne</h4>
+        <pre>
+          <code class="language-plantuml">
+            @startmindmap
+            !theme cyborg
+            <style>
+              mindmapDiagram {
+                FontSize 24
+              }
+            </style>
+            * app
+            ** libA
+            *** libB
+            **** libC
+            *** libD
+            **** libE
+            **** libF
+            @endmindmap
+          </code>
+          </pre>
+          <p>Zależności tranzytywne są dołączane automatycznie na podstawie zależności które definiujemy bezpośrednio.</p>
+      </section>
       <section>
-        <h4>Narzędzia budowania aplikacji</h3>
+        <h4>Biblioteka a framework</h4>
+        <p>W obydwu przypadkach mamy do czynienia z kodem zewnętrznym, ale w przypadku:</p>
+        <ul>
+            <li>biblioteki - decydujemy w jakim miejscu i w jakim zakresie ją wykorzystujemy,</li>
+            <li>frameworka - stanowi szkielet aplikacji, który wykonuje nasz kod w odpowiednio zdefiniowanym momencie.</li>
+        </ul>
+      </section style="font-size: 25pt">
+      <section style="font-size: 24pt">
+        <h4>Narzędzia budowania aplikacji</h4>
+        <p>Niezależnie od wybranego języka programowania korzystamy z narzędzi budowania aplikacji, które wspierają zarządzanie projektem programistycznym.</p>
+        <p>W projektach gdzie mamy języki JVM:</p>
           <ul>
-            W projektach gdzie mamy języki JVM:
-            <li>Ant - na początku było ...</li>
             <li>Maven - legacy z wieloma pluginami</li>
             <li>Gradle - aktualnie popularne, większa elastyczność</li>
             <li>Sbt - projekty opierające się na języku Scala</li>
           </ul>
+        <p>W projektach frontendowych podstawą jest Node Package Manager wraz z narzędziami specyficznymi dla frameworków.</p>
       </section>
       <section>
         <h4>Po co to komu potrzebne...</h4>
@@ -303,44 +362,9 @@ dist/*.map
           <li>wsparcie dewelopmentu</li>
         </ul>
       </section>
-      <section style="font-size: 26pt">
-        <h4>Maven vs Gradle</h4>
-        <table>
-          <thead>
-            <tr>
-              <th>
-
-              </th>
-              <th>
-                Maven
-              </th>
-              <th>
-                Gradle
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>Język</th>
-              <th>XML</th>
-              <th>Groovy, Kotlin</th>
-            </tr>
-            <tr>
-              <th>Popularność</th>
-              <th>większość projektów</th>
-              <th>nowsze projekty</th>
-            </tr>
-            <tr>
-              <th>Wtyczki</th>
-              <th>wiele gotowych, ale trudno pisać własne</th>
-              <th>prostota tworzenia własnych rozszerzeń</th>
-            </tr>
-          </tbody>
-        </table>
-      </section>
-      <section>
-        <h4>Taski</h4>
-        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim class="bash">
+      <section style="font-size: 22pt">
+        <h4>Gradle - taski</h4>
+        <pre><code style="max-height: 650px" data-trim class="bash">
 mkaminski@mkaminski-lap:~/work/omega-psir$ ./gradlew tasks
 Starting a Gradle Daemon, 2 incompatible and 1 stopped Daemons could not be reused, use --status for details
 
@@ -433,10 +457,20 @@ To see more detail about a task, run gradlew help --task <task>
 </code>
         </pre>
       </section>
-      <section>
-        <h4>Dependency hell</h4>
-        <div>Nasz kod to praktycznie zawsze mniej niż 1%</div>
-        <pre style="width: 100%; height: 100%;"><code style="width: 100%; height: 100%;" data-trim="" class="bash">
+      <section style="font-size: 25pt">
+        <h4>Scopes</h4>
+        <p>W zależności od potrzeb zależności są wykorzystywane w różnym zakresie.</p>
+        <p>Dla przykładu maven pozwala na stosowanie 7 typów zakresów użycia zależności, przy czym najważniejsze 4 z nich to:</p>
+        <ul>
+          <li><b>compile</b> - domyślny zakres, zależność jest używana zarówno do kompilacji jak i dołączana do zbudowanego artefaktu,</li>
+          <li><b>runtime</b> - zależność jest dołączana do artefaktu, ale nie jest potrzebna do kompilacji,</li>
+          <li><b>provided</b> - zależność nie jest dołączana do artefaktu,</li>
+          <li><b>test</b> - zależność jest jedynie wykorzystywana na potrzeby wykonania testów.</li>
+        </ul>
+      </section>
+      <section style="font-size: 24pt">
+        <h4>Spis zależności</h4>
+        <pre><code style="max-height: 650px;" data-trim class="bash">
 mkaminski@mkaminski-lap:~/work/report-engine$ ./gradlew dependencies
 
 > Task :dependencies
@@ -767,6 +801,61 @@ A web-based, searchable dependency report is available by adding the --scan opti
 
         </code></pre>
       </section>
+      <section style="font-size: 24pt">
+        <h4>Dependency hell</h4>
+        <pre>
+          <code class="language-plantuml">
+            @startmindmap
+            !theme cyborg
+            <style>
+              .red {
+                BackgroundColor #F94449
+              }
+              mindmapDiagram {
+                FontSize 24
+              }
+            </style>
+            * app
+            ** libA
+            *** libB:1.0.0 &lt;&lt;red>>
+            ** libC
+            *** libB:2.0.0 &lt;&lt;red>>
+            @endmindmap
+          </code>
+          </pre>
+        <p>Tylko jedna klasa o danej nazwie z danego pakietu może zostać załadowana do pamięci przez classloader JVM!
+          Zatem wymagamy unikalności zależności w obrębie jednego artefaktu.</p>
+        <p>Dependency hell jest problemem trudnym do wykrycia ze względu na tranzytywność zależności
+          i brak weryfikacji na poziomie kompilacji.</p>
+      </section>
+      <section style="font-size: 22pt">
+        <h4>Exclude - maven i gradle</h4>
+        <p>Jedną ze strategii zaradzenia konfliktom artefaktów jest exclude'owanie zależności tranzytywnych.</p>
+        <pre>
+          <code class="gradle" data-trim>
+          implementation('commons-beanutils:commons-beanutils:1.9.4') {
+              exclude group: 'commons-collections', module: 'commons-collections'
+          }
+          </code>
+        </pre>
+
+        <pre>
+          <code class="xml" data-trim>
+        &lt;dependency>
+        &lt;groupId>commons-beanutils&lt;/groupId>
+          &lt;artifactId>commons-beanutils&lt;/artifactId>
+          &lt;version>1.9.4&lt;/version>
+          &lt;exclusions>
+            &lt;exclusion>
+              &lt;groupId>commons-collections&lt;/groupId>
+              &lt;artifactId>commons-collections&lt;/artifactId>
+            &lt;/exclusion>
+          &lt;/exclusions>
+        &lt;/dependency>
+      </code>
+    </pre>
+        <p>Trzeba pamiętać, że exclude nie rozwiązuje problem konfliktu zależności w każdym przypadku, więc często trzeba podjąć decyzję na poziomie kodu aplikacji.</p>
+      </section>
       <section>
         <h4>Modułowość</h4>
         <img src="res/multiproject-gradle.png" />
@@ -784,7 +873,7 @@ include(
       </section>
       <section>
         <h4>build.gradle</h4>
-        <pre><code data-trim class="gradle"><script type="text/template">
+        <pre><code data-trim class="gradle" style="max-height: 650px;"><script type="text/template">
 allprojects {
   tasks.withType<JavaCompile> {
   options.encoding = "UTF-8"
@@ -890,31 +979,22 @@ configure(allprojects) {
 }
 				</code></pre>
       </section>
-      <section>
-        <h4>Analiza statyczna kodu</h4>
-        <ul>
-          <li>Linter - wykrywanie potencjalnych błędów bez testowania aplikacji (oszczędność czasu)</li>
-          <li>Czystość oraz jakość kodu - stosowanie zasad ustalanych w każdym zespole</li>
-          <li>Podczas budowania artefaktów lub na niezależnym serwerze - SonarQube</li>
-          <img src="res/dev-cycle.png"/>
-        </ul>
-      </section>
-      <section>
+      <section style="font-size: 24pt">
         <h4>Repozytorium artefaktów</h4>
         <ol>
           <li>Miejsce na umieszczanie zbudowanych i gotowych do uruchomienia części aplikacji.</li>
-          <li>Niezbędne dla procesu ciągłego dostarczania oprogramowania.</li>
-          <li>Szybki dostęp do wszystkich wersji oprogramowania - nasi klienci mają wybór jaką wersję chcą zainstalować.
-          </li>
-          <li>Proxy dla globalnych repozytoriów artefaktów.</li>
-          <li>Umożliwia przechowywanie prywatnych bibliotek których nie chcemy udostępniać na świat.</li>
+          <li>Dostęp do wszystkich wersji danego artefaktów.</li>
+          <li>Umożliwia ograniczanie dostępu do artefaktów.</li>
         </ol>
+        <p>Przykład publicznego repozytorium: <a href="https://mvnrepository.com/">https://mvnrepository.com/</a></p>
+        <p>Narzędzia budowania projektu korzystają z lokalnego repozytorium (cache) tak, aby nie sięgać przy każdym budowaniu do repozytorium zewnętrznego.</p>
+        <p>Repozytorium lokalne maven jest standardowo usytuowane w katalogu domowym pod ścieżką: <code>~/.m2/repository</code></p>
       </section>
-      <section>
+      <section style="font-size: 25pt;">
         <h4>Nexus</h4>
         <ul>
           <li>Popularne i powszechnie stosowane repozytorium artefaktów różnego typu.</li>
-          <li>Może przechowywać i przechowywać rejestr zbudowanych plików typu jar, war, ear, obrazy dockerowe, node modules, python packages i więcej.
+          <li>Może przechowywać i przechowywać rejestr zbudowanych plików typu jar, war, ear, obrazy dockerowe, node modules, python packages, itd.
           </li>
           <img src="res/nexus.png" />
         </ul>
@@ -966,6 +1046,15 @@ project.version = scmVersion.version
 </script></code></pre>
 Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
       </section>
+      <section style="font-size: 25pt;">
+        <h4>Analiza statyczna kodu</h4>
+        <ul>
+          <li>Linter - wykrywanie potencjalnych błędów bez testowania aplikacji (oszczędność czasu)</li>
+          <li>Czystość oraz jakość kodu - stosowanie zasad ustalanych w każdym zespole</li>
+          <li>Podczas budowania artefaktów lub na niezależnym serwerze - SonarQube</li>
+          <img src="res/dev-cycle.png"/>
+        </ul>
+      </section>
       <section>
         <h4>CI / CD</h4>
         <p>Wszystko co dotychczas omówiliśmy ale w formie zautomatyzowanej - standaryzacja procesu wytwórczego
@@ -1004,21 +1093,6 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         <h4>Jenkins</h4>
         <img src="res/jenkins.PNG">
       </section>
-      <!--<section>
-        <h4>Bitbucket pipelines</h4>
-        <p>Plik bitbucket-pipelines.yml umieszczamy w repozytorium (może używać skryptów gradle).</p>
-        <img style="width: 80%;" src="res/bitbucket-pipelines-configuration.png" />
-      </section>
-      <section>
-        <h4>Bitbucket pipelines - harmonogram</h4>
-        <p>Harmonogram wdrożeń może być dowolny i uruchomiony z dowolnego brancha na dowolne środowisko.</p>
-        <img style="width: 80%;" src="res/bitbucket-pipelines.png" />
-      </section>
-      <section>
-        <h4>Bitbucket pipelines - weryfikacja</h4>
-        <p>Łatwo możemy zweryfikować co się udało wdrożyć i na jakie środowisko.</p>
-        <img src="res/build-bitbucket.png" />
-      </section>-->
       <section>
         <h4>Zaawansowane wdrożenie</h4>
         <p>Technologie: Puppet, Ansible, Chef, Kubernetes, ...</p>
@@ -1097,7 +1171,8 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         <p style="font-size: x-large;">Działanie aplikacji jest monitorowane i prezentowane przez zestaw narzędzi: 
           Grafana, Prometheus, Alertmanager, Kibana, Slack.</p>
       </section>
-      <section>
+      
+      <section style="font-size: 25pt;">
         <h4>JIRA</h4>
         <ul>
         <li>Prowadzenie projektów (zewnętrznych i wewnętrznych)</li>
@@ -1127,7 +1202,7 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
       </section>
       <section>
         <h4>Zarządzie wydawaniem wersji</h4>
-        <p>Kontrola nad wydawaniem - co ma być zrobione.</p>
+        <p>Kontrola nad wydawaniem na poziomie nietechnicznym.</p>
         <img src="res/jira-versioning.png" />
       </section>
       <section>
@@ -1148,9 +1223,6 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
         <p>Wiki</p>
       </section>
       <section>
-        Prezentacja narzędzi w praktyce
-      </section>
-      <section>
         Bardzo dziękuję za wysłuchanie :)
         <a href="mailto:m.kaminski@sages.com.pl">m.kaminski@sages.com.pl</a>
       </section>
@@ -1162,6 +1234,7 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
   <script src="plugin/notes/notes.js"></script>
   <script src="plugin/markdown/markdown.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/plantuml/reveal-plantuml.min.js"></script>
   <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -1174,7 +1247,10 @@ Alternatywnie: <a href="https://jreleaser.org/">JReleaser</a>
       transition: 'slide',
       backgroundTransition: 'slide',
       // Learn about plugins: https://revealjs.com/plugins/
-      plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+      plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      plantuml: {
+        serverPath: 'https://www.plantuml.com/plantuml/svg/'
+      }
     });
   </script>
 </body>
